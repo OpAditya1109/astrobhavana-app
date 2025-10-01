@@ -1,0 +1,55 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <!-- ✅ Required for network -->
+  <uses-permission android:name="android.permission.INTERNET"/>
+
+  <!-- ✅ Vibration for notifications -->
+  <uses-permission android:name="android.permission.VIBRATE"/>
+
+  <!-- ✅ Notifications (Android 13+) -->
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+  <!-- ✅ Optional: only keep if really needed -->
+  <!-- <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/> -->
+  <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> -->
+  <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
+
+  <!-- ✅ Required if your app opens external links -->
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <category android:name="android.intent.category.BROWSABLE" />
+      <data android:scheme="https" />
+    </intent>
+  </queries>
+
+  <application
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme"
+      android:supportsRtl="true">
+
+    <!-- ✅ MainActivity -->
+    <activity
+        android:name=".MainActivity"
+        android:exported="true"
+        android:launchMode="singleTask"
+        android:theme="@style/Theme.App.SplashScreen"
+        android:windowSoftInputMode="adjustResize|stateHidden"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode">
+
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+    <!-- ✅ Your WebView activity -->
+    <activity
+        android:name=".AstrologerWebViewActivity"
+        android:exported="false"
+        android:theme="@style/AppTheme"/>
+  </application>
+</manifest>
