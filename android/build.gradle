@@ -20,5 +20,10 @@ allprojects {
   }
 }
 
+// ✅ Add this for Node
+project.ext.react = [
+        nodeExecutableAndArgs: ["/opt/homebrew/bin/node"]
+]
+
 apply plugin: "expo-root-project"
 apply plugin: "com.facebook.react.rootproject"
